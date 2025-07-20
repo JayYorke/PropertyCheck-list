@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final 15-Minute Property Maintenance Checklist</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 30px;
+    }
+    .header {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .form-content {
+      margin-top: 20px;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #3498db;
+    }
+    .field-block {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    input[type="file"] {
+      margin-top: 5px;
+    }
+    .checklist-item {
+      border: 1px solid #e1e1e1;
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .status-options,
+    .responsibility-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .status-options label,
+    .responsibility-options label {
+      background: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .submit-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(39,174,96,0.3);
+      margin-top: 30px;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(39,174,96,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Final 15-Minute Property Maintenance Checklist</h1>
+    </div>
+    <form method="POST" action="https://your-n8n-url.com/webhook/maintenance-checklist-submit" enctype="multipart/form-data">
+      <div class="form-content">
+        <div class="section-title">Technician Info</div>
+        <div class="field-block">
+          <label for="property_address">Property / Unit Address</label>
+          <input type="text" id="property_address" name="property_address" required>
+        </div>
+        <div class="field-block">
+          <label for="technician_name">Maintenance Technician Name</label>
+          <input type="text" id="technician_name" name="technician_name" required>
+        </div>
+        <div class="field-block">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" value="2025-07-20" required>
+        </div>
+        <div class="section-title">Checklist</div>
+
+        <div class="checklist-item">
+          <h3>1. Smoke & CO Alarms</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item1_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item1_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item1_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item1_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item1_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item1_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item1_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item1_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item1_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>2. HVAC Filter</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item2_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item2_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item2_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item2_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item2_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item2_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item2_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item2_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item2_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>3. Thermostat</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item3_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item3_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item3_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item3_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item3_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item3_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item3_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item3_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item3_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>4. Water Heater</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item4_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item4_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item4_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item4_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item4_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item4_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item4_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item4_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item4_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>5. Sinks & Faucets</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item5_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item5_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item5_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item5_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item5_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item5_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item5_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item5_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item5_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>6. Under-Sink Areas</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item6_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item6_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item6_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item6_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item6_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item6_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item6_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item6_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item6_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>7. Toilets</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item7_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item7_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item7_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item7_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item7_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item7_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item7_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item7_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item7_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>8. Major Appliances</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item8_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item8_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item8_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item8_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item8_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item8_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item8_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item8_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item8_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>9. Primary Lights & Switches</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item9_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item9_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item9_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item9_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item9_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item9_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item9_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item9_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item9_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>10. Entry Doors & Main Windows</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item10_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item10_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item10_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item10_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item10_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item10_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item10_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item10_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item10_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>11. Walls & Ceilings</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item11_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item11_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item11_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item11_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item11_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item11_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item11_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item11_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item11_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>12. High-Traffic Flooring</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item12_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item12_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item12_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item12_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item12_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item12_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item12_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item12_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item12_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>13. Electrical Outlets</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item13_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item13_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item13_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item13_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item13_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item13_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item13_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item13_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item13_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>14. Entry Walkways & Steps</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item14_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item14_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item14_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item14_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item14_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item14_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item14_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item14_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item14_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>15. Roof & Siding (Ground View)</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item15_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item15_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item15_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item15_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item15_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item15_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item15_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item15_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item15_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>16. Gutters & Downspouts</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item16_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item16_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item16_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item16_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item16_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item16_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item16_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item16_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item16_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>17. HVAC Unit & Vents</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item17_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item17_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item17_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item17_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item17_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item17_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item17_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item17_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item17_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>18. Exterior Faucets</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item18_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item18_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item18_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item18_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item18_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item18_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item18_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item18_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item18_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>19. Foundation & Pest Signs</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item19_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item19_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item19_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item19_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item19_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item19_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item19_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item19_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item19_photo" accept="image/*">
+        </div>
+    
+        <div class="checklist-item">
+          <h3>20. Garage Door (if applicable)</h3>
+          <label>Status:</label>
+          <div class="status-options">
+            <label><input type="radio" name="item20_status" value="Satisfactory" required> Satisfactory</label>
+            <label><input type="radio" name="item20_status" value="Corrected Onsite"> Corrected Onsite</label>
+            <label><input type="radio" name="item20_status" value="Replaced Onsite"> Replaced Onsite</label>
+            <label><input type="radio" name="item20_status" value="Requires Additional Visit"> Requires Additional Visit</label>
+          </div>
+          <label>Responsibility:</label>
+          <div class="responsibility-options">
+            <label><input type="radio" name="item20_resp" value="Tenant"> Tenant Charge</label>
+            <label><input type="radio" name="item20_resp" value="Owner"> Owner Charge</label>
+          </div>
+          <label>Service Price:</label>
+          <select name="item20_price" required>
+            <option value="">Select price...</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="75">$75</option>
+            <option value="125">$125</option>
+          </select>
+          <label>Notes:</label>
+          <textarea name="item20_notes" rows="2" placeholder="Add any notes..."></textarea>
+          <label>Upload Photo (if applicable):</label>
+          <input type="file" name="item20_photo" accept="image/*">
+        </div>
+    
+        <div style="text-align: center;">
+          <button class="submit-btn" type="submit">Submit Checklist</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
